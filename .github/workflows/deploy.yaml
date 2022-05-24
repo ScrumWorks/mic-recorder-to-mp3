@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+    release:
+        types: [published]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   uses: actions/setup-node@v1
+                with:
+                    node-version: '16.13.0'
+                    registry-url: 'https://npm.pkg.github.com'
+                    scope: '@scrumworks'
+
+            -   uses: c-hive/gha-yarn-cache@v1
+
+            -   name: Install dependencies
+                run: yarn install
+
+            -   name: Build
+                run: yarn build
+                env:
+                    NODE_ENV: production
+
+            -   name: Unlink local .nmprc file
+                run: unlink .npmrc
+
+            -   name: Publish new package version
+                run: yarn publish
+                env:
+                    NODE_AUTH_TOKEN: ${{ secrets.CI_GH_TOKEN }}
