@@ -2,13 +2,20 @@
   "name": "mic-recorder-to-mp3",
   "version": "2.2.3",
   "description": "Record your microphone audio input and get an audio/mp3 ouput buffer/blob.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scrumworks/mic-recorder-to-mp3.git",
+    "directory": "@scrumworks/mic-recorder-to-mp3"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c",
     "minify": "minify=true rollup -c",
     "watch": "rollup -c -w"
   },
-  "repository": "git@github.com:closeio/mic-recorder-to-mp3.git",
   "author": "Djalma Araujo <djalma@close.io>",
   "contributors": [
     "Vitor Buzinaro <vitor@close.io>"
