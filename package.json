@@ -1,5 +1,5 @@
 {
-  "name": "mic-recorder-to-mp3",
+  "name": "@scrumworks/mic-recorder-to-mp3",
   "version": "2.2.4",
   "description": "Record your microphone audio input and get an audio/mp3 ouput buffer/blob.",
   "repository": {
